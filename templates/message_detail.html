@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Message detail</title>
+</head>
+<body>
+    {% load static %}
+<link rel="stylesheet" href="{% static 'message_detail.css'%}">
+<h2 class="header">Message detail</h2>
+<table id="message">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>IP adress</th>
+        <th>Message</th>
+    </tr>
+    <tr>
+        <td>{{ item.first_name }}</td>
+        <td>{{ item.last_name }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.ip_address }}</td>
+        <td>{{ item.message }}</td>
+    </tr>
+</table>
+<p>
+    <form method="post">
+        {%csrf_token%}
+        <input type="hidden" name="email" value="{{item.email}}">
+        <input type="hidden" name="ip_address" value="{{item.ip_address}}">
+        <button class="redbutton" type="submit">Spam</button>
+    </form>
+</p>
+<p>
+    <a href="{%url 'add_spam_word' pk=item.pk%}">
+        <button class="redbutton">Add Spam Word</button>
+    </a>
+</p>
+</body>
+</html>
