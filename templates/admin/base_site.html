@@ -1,0 +1,23 @@
+{% extends "admin/base.html" %}
+{% load i18n static %}
+
+{% block extrahead %}
+    {% include "favicon.html" %}
+{% endblock %}
+{% block title %}{{ title }} | {% trans "Admin Page" %}{% endblock %}
+{% block extrastyle %}
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/admin_color.css' %}"/>
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/c0414a882a.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block branding %}
+    <div class="navbar">
+        <a href="#"><i class="fa-solid fa-envelopes-bulk"></i></a>
+        <a href="#">Email Spam Filter</a>
+    </div>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
